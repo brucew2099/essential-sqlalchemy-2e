@@ -10,5 +10,4 @@ def get_orders_by_customer(cust_name, shipped=None, details=False):
         query = query.join(LineItem).join(Cookie)
     if shipped is not None:
         query = query.filter(Order.shipped == shipped)
-    results = query.filter(User.username == cust_name).all()
-    return results
+    return query.filter(User.username == cust_name).all()

@@ -15,5 +15,4 @@ def get_orders_by_customer(cust_name, shipped=None, details=False):
         dal.users.c.username == cust_name)
     if shipped is not None:
         cust_orders = cust_orders.where(dal.orders.c.shipped == shipped)
-    result = dal.connection.execute(cust_orders).fetchall()
-    return result
+    return dal.connection.execute(cust_orders).fetchall()
